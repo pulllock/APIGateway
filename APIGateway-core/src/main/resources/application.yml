@@ -27,5 +27,5 @@ logging:
     path: ./logs/
 
 ipCounter:
-  countRule: 1
-  timeRule: 10
+  countRule: 100
+  timeRule: 1
