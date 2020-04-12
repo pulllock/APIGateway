@@ -21,3 +21,11 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+logging:
+  file:
+    path: ./logs/
+
+ipCounter:
+  countRule: 1
+  timeRule: 10
