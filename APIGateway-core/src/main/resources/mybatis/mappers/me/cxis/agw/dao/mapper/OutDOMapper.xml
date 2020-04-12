@@ -2,35 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="me.cxis.agw.dao.mapper.OutDOMapper">
   <resultMap id="BaseResultMap" type="me.cxis.agw.dao.model.OutDO">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <id     column="id"            jdbcType="BIGINT"    property="id" />
+    <result column="created_time"  jdbcType="TIMESTAMP" property="createdTime" />
     <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
-    <result column="version" jdbcType="SMALLINT" property="version" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="version"       jdbcType="SMALLINT"  property="version" />
+    <result column="name"          jdbcType="VARCHAR"   property="name" />
+    <result column="desc"          jdbcType="VARCHAR"   property="desc" />
+    <result column="code"          jdbcType="VARCHAR"   property="code" />
   </resultMap>
+
   <sql id="Base_Column_List">
-    id, created_time, modified_time, version, name, desc, code
+    id      , created_time , modified_time ,
+    version , name         , `desc`          ,
+    code
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from agw_out
     where id = #{id,jdbcType=BIGINT}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from agw_out
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="me.cxis.agw.dao.model.OutDO">
-    insert into agw_out (id, created_time, modified_time, 
-      version, name, desc, 
-      code)
-    values (#{id,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, 
-      #{version,jdbcType=SMALLINT}, #{name,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, 
-      #{code,jdbcType=VARCHAR})
+    insert into agw_out (
+      id      , created_time , modified_time ,
+      version , name         , `desc`          ,
+      code
+    )
+    values (
+      #{id      , jdbcType=BIGINT  }, #{createdTime , jdbcType=TIMESTAMP}, #{modifiedTime ,jdbcType=TIMESTAMP},
+      #{version , jdbcType=SMALLINT}, #{name        , jdbcType=VARCHAR  }, #{desc         ,jdbcType=VARCHAR  },
+      #{code    , jdbcType=VARCHAR }
+    )
   </insert>
+
   <insert id="insertSelective" parameterType="me.cxis.agw.dao.model.OutDO">
     insert into agw_out
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -50,7 +61,7 @@
         name,
       </if>
       <if test="desc != null">
-        desc,
+        `desc`,
       </if>
       <if test="code != null">
         code,
@@ -80,6 +91,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="me.cxis.agw.dao.model.OutDO">
     update agw_out
     <set>
@@ -96,7 +108,7 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="desc != null">
-        desc = #{desc,jdbcType=VARCHAR},
+        `desc` = #{desc,jdbcType=VARCHAR},
       </if>
       <if test="code != null">
         code = #{code,jdbcType=VARCHAR},
@@ -104,14 +116,22 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="me.cxis.agw.dao.model.OutDO">
     update agw_out
-    set created_time = #{createdTime,jdbcType=TIMESTAMP},
-      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
-      version = #{version,jdbcType=SMALLINT},
-      name = #{name,jdbcType=VARCHAR},
-      desc = #{desc,jdbcType=VARCHAR},
-      code = #{code,jdbcType=VARCHAR}
+    set   created_time = #{createdTime,jdbcType=TIMESTAMP},
+          modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+          version = #{version,jdbcType=SMALLINT},
+          name = #{name,jdbcType=VARCHAR},
+          `desc` = #{desc,jdbcType=VARCHAR},
+          code = #{code,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from agw_out
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
 </mapper>

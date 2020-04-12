@@ -12,7 +12,7 @@ public interface Constants {
 
     String X_FORWARDED_FOR = "X-Forwarded-For";
 
-    String OUT_CODE = "outCode";
+    String OUT_NAME = "outName";
 
     String NONCE = "nonce";
 
