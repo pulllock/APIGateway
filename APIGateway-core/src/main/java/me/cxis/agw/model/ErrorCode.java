@@ -3,7 +3,9 @@ package me.cxis.agw.model;
 public enum ErrorCode {
 
     SYSTEM_ERROR(1, "系统错误"),
-    PARAM_ERROR(2, "参数错误")
+    PARAM_ERROR(2, "参数错误"),
+    FREQUENTLY_ACCESS(3, "访问太频繁了"),
+    IP_NOT_ALLOWED(4, "禁止访问"),
     ;
 
     /**

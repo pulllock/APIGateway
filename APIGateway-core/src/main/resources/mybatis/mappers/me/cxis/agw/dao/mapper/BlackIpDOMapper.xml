@@ -2,32 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="me.cxis.agw.dao.mapper.BlackIpDOMapper">
   <resultMap id="BaseResultMap" type="me.cxis.agw.dao.model.BlackIpDO">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <id     column="id"            jdbcType="BIGINT"    property="id" />
+    <result column="created_time"  jdbcType="TIMESTAMP" property="createdTime" />
     <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
-    <result column="version" jdbcType="SMALLINT" property="version" />
-    <result column="out_id" jdbcType="BIGINT" property="outId" />
-    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="version"       jdbcType="SMALLINT"  property="version" />
+    <result column="out_id"        jdbcType="BIGINT"    property="outId" />
+    <result column="ip"            jdbcType="VARCHAR"   property="ip" />
   </resultMap>
+
   <sql id="Base_Column_List">
-    id, created_time, modified_time, version, out_id, ip
+    id      , created_time , modified_time ,
+    version , out_id       , ip
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from agw_black_ip
     where id = #{id,jdbcType=BIGINT}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from agw_black_ip
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="me.cxis.agw.dao.model.BlackIpDO">
-    insert into agw_black_ip (id, created_time, modified_time, 
-      version, out_id, ip)
-    values (#{id,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, 
-      #{version,jdbcType=SMALLINT}, #{outId,jdbcType=BIGINT}, #{ip,jdbcType=VARCHAR})
+    insert into agw_black_ip (
+      id      , created_time , modified_time ,
+      version , out_id       , ip
+    )
+    values (
+      #{id      , jdbcType=BIGINT  }, #{createdTime , jdbcType=TIMESTAMP}, #{modifiedTime ,jdbcType=TIMESTAMP},
+      #{version , jdbcType=SMALLINT}, #{outId       , jdbcType=BIGINT   }, #{ip           ,jdbcType=VARCHAR  }
+    )
   </insert>
+
   <insert id="insertSelective" parameterType="me.cxis.agw.dao.model.BlackIpDO">
     insert into agw_black_ip
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -71,6 +81,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="me.cxis.agw.dao.model.BlackIpDO">
     update agw_black_ip
     <set>
@@ -92,13 +103,21 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="me.cxis.agw.dao.model.BlackIpDO">
     update agw_black_ip
-    set created_time = #{createdTime,jdbcType=TIMESTAMP},
-      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
-      version = #{version,jdbcType=SMALLINT},
-      out_id = #{outId,jdbcType=BIGINT},
-      ip = #{ip,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+    set   created_time  = #{createdTime  , jdbcType=TIMESTAMP},
+          modified_time = #{modifiedTime , jdbcType=TIMESTAMP},
+          version       = #{version      , jdbcType=SMALLINT },
+          out_id        = #{outId        , jdbcType=BIGINT   },
+          ip            = #{ip           , jdbcType=VARCHAR  }
+    where id            = #{id           , jdbcType=BIGINT   }
   </update>
+
+  <select id="selectByIp" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from agw_black_ip
+    where ip = #{ip,jdbcType=BIGINT}
+  </select>
 </mapper>

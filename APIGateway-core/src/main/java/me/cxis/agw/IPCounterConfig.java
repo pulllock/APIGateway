@@ -16,6 +16,7 @@ public class IPCounterConfig {
 
     @Bean
     public IPCounter ipCounter() {
+        // TODO 从动态配置中心获取
         return new IPCounter(countRule, timeRule);
     }
 
