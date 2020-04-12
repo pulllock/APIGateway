@@ -8,6 +8,7 @@ public enum ErrorCode {
     IP_NOT_ALLOWED(4, "禁止访问"),
     OUT_CHANNEL_NOT_EXIST(5, "外部渠道不存在"),
     SIGNATURE_ERROR(6, "签名错误"),
+    DECODE_DATA_ERROR(7, "解码错误")
     ;
 
     /**
