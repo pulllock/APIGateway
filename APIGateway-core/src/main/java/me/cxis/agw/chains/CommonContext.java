@@ -22,6 +22,22 @@ public class CommonContext extends ContextBase {
 
     private String clientIp;
 
+    public String getSignature() {
+        return reqParams.get(SIGNATURE);
+    }
+
+    public String getOutName() {
+        return reqParams.get(OUT_NAME);
+    }
+
+    public String getParam() {
+        return reqParams.get(PARAM);
+    }
+
+    public String getNonce() {
+        return reqParams.get(NONCE);
+    }
+
     public int getRetCode() {
         return retCode;
     }

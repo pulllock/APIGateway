@@ -118,6 +118,6 @@
     select
     <include refid="Base_Column_List" />
     from agw_black_ip
-    where ip = #{ip,jdbcType=BIGINT}
+    where ip = #{ip,jdbcType=VARCHAR}
   </select>
 </mapper>

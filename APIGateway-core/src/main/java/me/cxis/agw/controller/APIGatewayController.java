@@ -32,7 +32,7 @@ public class APIGatewayController {
             HttpServletRequest request,
             @PathVariable(name = "biz") String sys,
             @PathVariable(name = "api") String apiName,
-            @RequestParam(name = "out") String outCode,
+            @RequestParam(name = "out") String outName,
             @RequestParam(name = "nonce") String nonce,
             @RequestParam(name = "sig") String signature,
             @RequestBody String param
@@ -46,7 +46,7 @@ public class APIGatewayController {
                 return new Result<>(PARAM_ERROR, "param: api is empty");
             }
 
-            if (StringUtils.isEmpty(outCode)) {
+            if (StringUtils.isEmpty(outName)) {
                 return new Result<>(PARAM_ERROR, "param: out is empty");
             }
 
@@ -65,7 +65,7 @@ public class APIGatewayController {
                     "request sys: {}, api: {}, out: {}, nonce: {}, sig: {}, param: {}",
                     sys,
                     apiName,
-                    outCode,
+                    outName,
                     nonce,
                     signature,
                     param
@@ -75,7 +75,7 @@ public class APIGatewayController {
 
             params.put(SYS, sys);
             params.put(API_NAME, apiName);
-            params.put(OUT_CODE, outCode);
+            params.put(OUT_NAME, outName);
             params.put(NONCE, nonce);
             params.put(SIGNATURE, signature);
             params.put(PARAM, param);

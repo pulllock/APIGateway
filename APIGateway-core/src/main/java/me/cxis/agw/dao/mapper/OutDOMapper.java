@@ -3,6 +3,7 @@ package me.cxis.agw.dao.mapper;
 import me.cxis.agw.dao.model.OutDO;
 
 public interface OutDOMapper {
+
     int deleteByPrimaryKey(Long id);
 
     int insert(OutDO record);
@@ -14,4 +15,6 @@ public interface OutDOMapper {
     int updateByPrimaryKeySelective(OutDO record);
 
     int updateByPrimaryKey(OutDO record);
+
+    OutDO selectByName(String name);
 }
