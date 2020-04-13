@@ -1,6 +1,6 @@
 package me.cxis.agw;
 
-import org.apache.dubbo.config.ConsumerConfig;
+import com.alibaba.dubbo.config.ConsumerConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,6 +9,8 @@ public class DubboConsumerConfig extends DubboBaseConfig {
 
     @Bean
     public ConsumerConfig consumerConfig() {
-        return new ConsumerConfig();
+        ConsumerConfig consumerConfig = new ConsumerConfig();
+        consumerConfig.setMonitor(monitorConfig());
+        return consumerConfig;
     }
 }

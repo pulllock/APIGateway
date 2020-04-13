@@ -1,0 +1,9 @@
+logging:
+  file:
+    path: ./agw-sample/logs/
+
+app:
+  name: agw-sample
+
+server:
+  port: 8082

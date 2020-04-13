@@ -11,7 +11,7 @@
     </appender>
 
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>./logs/info/info.log</file>
+        <file>./logs/agw-sample/info/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>info/info-%d{yyyy-MM-dd}.log
             </fileNamePattern>
@@ -28,7 +28,7 @@
     </appender>
 
     <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>./logs/debug/debug.log</file>
+        <file>./logs/agw-sample/debug/debug.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>debug/debug-%d{yyyy-MM-dd}.log</fileNamePattern>
             <MaxHistory>30</MaxHistory>
@@ -44,7 +44,7 @@
     </appender>
 
     <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>./logs/warn/warn.log</file>
+        <file>./logs/agw-sample/warn/warn.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>warn/warn-%d{yyyy-MM-dd}.log
             </fileNamePattern>
@@ -61,7 +61,7 @@
     </appender>
 
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>./logs/error/error.log</file>
+        <file>./logs/agw-sample/error/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>error/error-%d{yyyy-MM-dd}.log
             </fileNamePattern>

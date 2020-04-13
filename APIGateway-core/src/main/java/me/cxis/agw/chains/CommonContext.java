@@ -21,6 +21,10 @@ public class CommonContext extends ContextBase {
 
     private Object retModel;
 
+    private int retNonce;
+
+    private String retSign;
+
     private Map<String, String> reqParams;
 
     private String clientIp;
@@ -129,5 +133,21 @@ public class CommonContext extends ContextBase {
 
     public void setApiDO(ApiDO apiDO) {
         this.apiDO = apiDO;
+    }
+
+    public int getRetNonce() {
+        return retNonce;
+    }
+
+    public void setRetNonce(int retNonce) {
+        this.retNonce = retNonce;
+    }
+
+    public String getRetSign() {
+        return retSign;
+    }
+
+    public void setRetSign(String retSign) {
+        this.retSign = retSign;
     }
 }
