@@ -15,6 +15,9 @@ import java.util.Map;
 
 import static me.cxis.agw.model.ErrorCode.DECODE_DATA_ERROR;
 
+/**
+ * 请求参数解密
+ */
 public class DecodeCommand extends AbstractCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DecodeCommand.class);

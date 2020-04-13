@@ -27,6 +27,17 @@ public class APIGatewayController {
     @Resource
     private APIGatewayService apiGatewayService;
 
+    /**
+     * 网关对外接口
+     * @param request 主要用来获取ip
+     * @param sys 内部系统，接口所属系统名
+     * @param apiName 接口名
+     * @param outName 外部调用方的名字
+     * @param nonce 随机数
+     * @param signature 签名
+     * @param param 加密后的参数
+     * @return 请求返回值
+     */
     @PostMapping("/v1/{biz}/{api}")
     public Result<String> v1Service(
             HttpServletRequest request,
@@ -80,6 +91,7 @@ public class APIGatewayController {
             params.put(SIGNATURE, signature);
             params.put(PARAM, param);
 
+            // commons-chain使用到的上下文
             CommonContext context = new CommonContext();
             context.setReqParams(params);
 

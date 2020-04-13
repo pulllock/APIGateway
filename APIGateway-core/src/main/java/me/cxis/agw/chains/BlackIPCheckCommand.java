@@ -9,6 +9,9 @@ import javax.annotation.Resource;
 
 import static me.cxis.agw.model.ErrorCode.IP_NOT_ALLOWED;
 
+/**
+ * 检查IP是否在黑名单中
+ */
 public class BlackIPCheckCommand extends AbstractCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BlackIPCheckCommand.class);

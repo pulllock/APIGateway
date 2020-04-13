@@ -8,6 +8,9 @@ import javax.annotation.Resource;
 
 import static me.cxis.agw.model.ErrorCode.FREQUENTLY_ACCESS;
 
+/**
+ * 流控，指定时间内同一个IP不能超过指定的次数
+ */
 public class FlowControlCommand extends AbstractCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FlowControlCommand.class);

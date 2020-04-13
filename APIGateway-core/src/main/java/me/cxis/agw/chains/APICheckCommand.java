@@ -11,6 +11,9 @@ import javax.annotation.Resource;
 
 import static me.cxis.agw.model.ErrorCode.*;
 
+/**
+ * 检查API是不是存在、检查API是不是属于指定的系统、检查API是不是属于调用方、检查调用方白名单
+ */
 public class APICheckCommand extends AbstractCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(APICheckCommand.class);
