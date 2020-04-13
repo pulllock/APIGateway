@@ -24,7 +24,7 @@ CREATE TABLE agw_api_param (
     api_id        bigint(20)                         NOT NULL COMMENT 'api id',
     name          varchar(255)                       NOT NULL COMMENT '参数名',
     type          varchar(255)                       NOT NULL COMMENT '参数类型',
-    `order`         smallint(6)                        NOT NULL COMMENT '参数顺序',
+    `sequence`     smallint(6)                        NOT NULL COMMENT '参数顺序',
     PRIMARY KEY pk_id(id),
     INDEX idx_api_id(api_id)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '接口对应的参数信息';

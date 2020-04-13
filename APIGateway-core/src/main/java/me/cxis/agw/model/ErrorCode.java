@@ -10,7 +10,8 @@ public enum ErrorCode {
     SIGNATURE_ERROR(6, "签名错误"),
     DECODE_DATA_ERROR(7, "解码错误"),
     API_NOT_EXIST(8, "API不存在"),
-    SYS_NOT_EXIST(9, "API系统不存在")
+    SYS_NOT_EXIST(9, "API系统不存在"),
+    PARAM_MISSING(10, "缺少参数")
     ;
 
     /**

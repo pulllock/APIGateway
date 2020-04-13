@@ -10,7 +10,7 @@ public class ApiDO {
 
     private Date modifiedTime;
 
-    private Short version;
+    private Integer version;
 
     private String code;
 
@@ -22,7 +22,7 @@ public class ApiDO {
 
     private Long sysId;
 
-    private Short timeout;
+    private Integer timeout;
 
     public Long getId() {
         return id;
@@ -48,11 +48,11 @@ public class ApiDO {
         this.modifiedTime = modifiedTime;
     }
 
-    public Short getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(Short version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -96,11 +96,11 @@ public class ApiDO {
         this.sysId = sysId;
     }
 
-    public Short getTimeout() {
+    public Integer getTimeout() {
         return timeout;
     }
 
-    public void setTimeout(Short timeout) {
+    public void setTimeout(Integer timeout) {
         this.timeout = timeout;
     }
 }

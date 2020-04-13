@@ -10,7 +10,7 @@ public class OutDO {
 
     private Date modifiedTime;
 
-    private Short version;
+    private Integer version;
 
     private String name;
 
@@ -44,11 +44,11 @@ public class OutDO {
         this.modifiedTime = modifiedTime;
     }
 
-    public Short getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(Short version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 

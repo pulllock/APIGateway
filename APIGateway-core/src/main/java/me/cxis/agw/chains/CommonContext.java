@@ -1,5 +1,8 @@
 package me.cxis.agw.chains;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+import me.cxis.agw.dao.model.ApiDO;
 import org.apache.commons.chain.impl.ContextBase;
 
 import java.util.Map;
@@ -21,6 +24,12 @@ public class CommonContext extends ContextBase {
     private Map<String, String> reqParams;
 
     private String clientIp;
+
+    private String[] paramTypes;
+
+    private Object[] params;
+
+    private ApiDO apiDO;
 
     public String getSignature() {
         return reqParams.get(SIGNATURE);
@@ -44,6 +53,10 @@ public class CommonContext extends ContextBase {
 
     public String getSys() {
         return reqParams.get(SYS);
+    }
+
+    public Map<String, String> getReqParamData() {
+        return JSON.parseObject(reqParams.get(DATA), new TypeReference<Map<String, String>>(){});
     }
 
     public int getRetCode() {
@@ -92,5 +105,29 @@ public class CommonContext extends ContextBase {
 
     public void setClientIp(String clientIp) {
         this.clientIp = clientIp;
+    }
+
+    public String[] getParamTypes() {
+        return paramTypes;
+    }
+
+    public void setParamTypes(String[] paramTypes) {
+        this.paramTypes = paramTypes;
+    }
+
+    public Object[] getParams() {
+        return params;
+    }
+
+    public void setParams(Object[] params) {
+        this.params = params;
+    }
+
+    public ApiDO getApiDO() {
+        return apiDO;
+    }
+
+    public void setApiDO(ApiDO apiDO) {
+        this.apiDO = apiDO;
     }
 }
