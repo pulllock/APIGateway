@@ -9,6 +9,8 @@ APIGateway API网关项目，从头开始实现一个APIGateway，用来学习AP
 - [APIGateway中加密验签介绍](http://cxis.me/2020/04/08/APIGateway中加密验签介绍/)
 - [APIGateway中流控介绍](http://cxis.me/2020/04/09/APIGateway中流控介绍/)
 - [APIGatewat中使用Dubbo泛化调用](http://cxis.me/2020/04/09/APIGatewat中使用Dubbo泛化调用/)
+- [APIGateway中获取客户端IP的方法](http://cxis.me/2020/04/12/APIGateway中获取客户端IP的方法/)
+- [APIGateway总结](http://cxis.me/2020/04/13/APIGateway总结)
 
 # 运行
 
