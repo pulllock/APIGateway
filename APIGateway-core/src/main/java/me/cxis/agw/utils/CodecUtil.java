@@ -82,16 +82,15 @@ public class CodecUtil {
         String key = "678901345678905432HHHYGHD#google";
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", 123);
-        jsonObject.put("name", "测试姓名");
-        jsonObject.put("alias", "tom");
+        jsonObject.put("buyerName", "测试姓名");
 
         String param = URLEncoder.encode(jsonObject.toJSONString(), "utf-8");
         System.out.println("param: " + param);
 
-        int nonce = 12345690; // new SecureRandom().nextInt();
+        int nonce = new SecureRandom().nextInt();
         String url = "http://localhost:8080/api/v1/";
         String apiCode = "1TRW556GGH#TEST";
-        String data = String.format("code=%s&data=%s&nonce=%d", apiCode, param, nonce);
+        String data = String.format("code=%s&query=%s&nonce=%d", apiCode, param, nonce);
         System.out.println("data: " + data);
 
         data = encrypt(key, data);
@@ -101,7 +100,7 @@ public class CodecUtil {
         System.out.println("sign: " + sign);
 
         String biz = "tradecenter";
-        String apiName = "createOrder";
+        String apiName = "queryOrders";
         String outName = "google";
         String finalUrl = String.format(
                 "%s%s/%s?out=%s&nonce=%d&sig=%s",

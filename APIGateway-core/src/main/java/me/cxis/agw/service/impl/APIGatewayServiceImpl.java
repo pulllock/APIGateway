@@ -31,6 +31,8 @@ public class APIGatewayServiceImpl implements APIGatewayService {
             result.setMsg(context.getRetMsg());
             result.setSuccess(context.getSuccess());
             result.setModel((String) context.getRetModel());
+            result.setNonce(context.getRetNonce());
+            result.setSign(context.getRetSign());
             return result;
         } catch (Exception e) {
             LOGGER.warn("system error, context: {}, cause: ", JSON.toJSONString(context), e);

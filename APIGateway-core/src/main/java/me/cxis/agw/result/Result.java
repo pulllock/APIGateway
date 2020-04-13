@@ -16,6 +16,10 @@ public class Result<T> implements Serializable {
 
     private T model;
 
+    private int nonce;
+
+    private String sign;
+
     public Result() {
     }
 
@@ -63,13 +67,31 @@ public class Result<T> implements Serializable {
         this.success = success;
     }
 
+    public int getNonce() {
+        return nonce;
+    }
+
+    public void setNonce(int nonce) {
+        this.nonce = nonce;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
+    }
+
     @Override
     public String toString() {
         return "Result{" +
-                "success=" + success +
-                ", code=" + code +
-                ", msg='" + msg + '\'' +
-                ", model=" + model +
-                '}';
+            "success=" + success +
+            ", code=" + code +
+            ", msg='" + msg + '\'' +
+            ", model=" + model +
+            ", nonce=" + nonce +
+            ", sign='" + sign + '\'' +
+            '}';
     }
 }

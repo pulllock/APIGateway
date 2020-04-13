@@ -3,7 +3,6 @@ package me.cxis.agw.chains;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonObject;
 import me.cxis.agw.dao.model.ApiDO;
 import me.cxis.agw.dao.model.ApiParamDO;
 import me.cxis.agw.manager.ApiManager;
@@ -14,7 +13,6 @@ import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static me.cxis.agw.model.ErrorCode.API_NOT_EXIST;
 import static me.cxis.agw.model.ErrorCode.PARAM_MISSING;
 
 public class ParamCheckCommand extends AbstractCommand {
@@ -31,10 +29,10 @@ public class ParamCheckCommand extends AbstractCommand {
         ApiDO apiDO = apiManager.queryByCode(apiCode);
         List<ApiParamDO> apiParams = apiManager.queryApiParamsByApiId(apiDO.getId());
 
-        Map<String, String> reqParamData = context.getReqParamData();
+        Map<String, String> reqParams = context.getReqParams();
 
         for (ApiParamDO apiParam : apiParams) {
-            if (!reqParamData.containsKey(apiParam.getName())) {
+            if (!reqParams.containsKey(apiParam.getName())) {
                 LOGGER.warn("param missing, param: {}", apiParam.getName());
                 context.setRetCode(PARAM_MISSING.getCode());
                 context.setRetMsg(PARAM_MISSING.getMsg());
@@ -51,7 +49,7 @@ public class ParamCheckCommand extends AbstractCommand {
             String paramType = apiParams.get(i).getType();
             paramTypes[i] = paramType;
 
-            params[i] = convertToActualType(paramType, reqParamData.get(apiParams.get(i).getName()));
+            params[i] = convertToActualType(paramType, reqParams.get(apiParams.get(i).getName()));
         }
 
         context.setParamTypes(paramTypes);
