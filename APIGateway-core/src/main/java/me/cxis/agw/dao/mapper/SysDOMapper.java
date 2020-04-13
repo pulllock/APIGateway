@@ -3,6 +3,7 @@ package me.cxis.agw.dao.mapper;
 import me.cxis.agw.dao.model.SysDO;
 
 public interface SysDOMapper {
+
     int deleteByPrimaryKey(Long id);
 
     int insert(SysDO record);
@@ -14,4 +15,6 @@ public interface SysDOMapper {
     int updateByPrimaryKeySelective(SysDO record);
 
     int updateByPrimaryKey(SysDO record);
+
+    SysDO selectByName(String name);
 }

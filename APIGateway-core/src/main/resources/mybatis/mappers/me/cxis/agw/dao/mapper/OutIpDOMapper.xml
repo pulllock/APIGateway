@@ -92,13 +92,22 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="me.cxis.agw.dao.model.OutIpDO">
     update agw_out_ip
-    set created_time = #{createdTime,jdbcType=TIMESTAMP},
-      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
-      version = #{version,jdbcType=SMALLINT},
-      out_id = #{outId,jdbcType=BIGINT},
-      ip = #{ip,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+    set   created_time  = #{createdTime,jdbcType=TIMESTAMP},
+          modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+          version       = #{version,jdbcType=SMALLINT},
+          out_id        = #{outId,jdbcType=BIGINT},
+          ip            = #{ip,jdbcType=VARCHAR}
+    where id            = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByOutIdAndIp" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from agw_out_ip
+    where out_id = #{outId,jdbcType=BIGINT}
+      and ip     = #{ip,jdbcType=VARCHAR}
+  </select>
 </mapper>

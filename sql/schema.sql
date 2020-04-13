@@ -11,7 +11,6 @@ CREATE TABLE agw_api (
     alias         varchar(255)                           NULL COMMENT 'api方法别名',
     sys_id        bigint(20)                         NOT NULL COMMENT '所属业务系统id',
     timeout       smallint(6)                        NOT NULL DEFAULT 1000 COMMENT '超时时间，毫秒',
-    ip_control    tinyint(4)                             NULL DEFAULT 0 COMMENT '是否白名单控制 0-否 1-是',
     PRIMARY KEY pk_id(id),
     INDEX idx_code(code),
     INDEX idx_sys_id(sys_id)
@@ -48,6 +47,7 @@ CREATE TABLE agw_out (
     name          varchar(255)                       NOT NULL COMMENT '业务系统名',
     `desc`          varchar(255)                       NOT NULL COMMENT '业务系统描述',
     code          varchar(255)                       NOT NULL COMMENT '外部系统唯一标识',
+    ip_control    tinyint(4)                             NULL DEFAULT 0 COMMENT '是否白名单控制 0-否 1-是',
     PRIMARY KEY pk_id(id)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '外部调用方';
 
