@@ -29,3 +29,6 @@ logging:
 ipCounter:
   countRule: 100
   timeRule: 1
+
+app:
+  name: agw

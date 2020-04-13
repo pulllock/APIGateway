@@ -3,13 +3,14 @@ package me.cxis.agw.dao.model;
 import java.util.Date;
 
 public class OutIpDO {
+
     private Long id;
 
     private Date createdTime;
 
     private Date modifiedTime;
 
-    private Short version;
+    private Integer version;
 
     private Long outId;
 
@@ -39,11 +40,11 @@ public class OutIpDO {
         this.modifiedTime = modifiedTime;
     }
 
-    public Short getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(Short version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 

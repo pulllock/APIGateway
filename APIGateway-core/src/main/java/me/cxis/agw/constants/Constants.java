@@ -29,4 +29,6 @@ public interface Constants {
     String RET_MODEL = "retModel";
 
     String RET_SUCCESS = "retSuccess";
+
+    String DATA = "data";
 }

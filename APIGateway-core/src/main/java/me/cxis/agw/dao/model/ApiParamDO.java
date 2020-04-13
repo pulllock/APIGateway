@@ -3,13 +3,14 @@ package me.cxis.agw.dao.model;
 import java.util.Date;
 
 public class ApiParamDO {
+
     private Long id;
 
     private Date createdTime;
 
     private Date modifiedTime;
 
-    private Short version;
+    private Integer version;
 
     private Long apiId;
 
@@ -17,7 +18,7 @@ public class ApiParamDO {
 
     private String type;
 
-    private Short order;
+    private Integer sequence;
 
     public Long getId() {
         return id;
@@ -43,11 +44,11 @@ public class ApiParamDO {
         this.modifiedTime = modifiedTime;
     }
 
-    public Short getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(Short version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -75,11 +76,11 @@ public class ApiParamDO {
         this.type = type;
     }
 
-    public Short getOrder() {
-        return order;
+    public Integer getSequence() {
+        return sequence;
     }
 
-    public void setOrder(Short order) {
-        this.order = order;
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
     }
 }

@@ -9,29 +9,34 @@
     <result column="api_id" jdbcType="BIGINT" property="apiId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="order" jdbcType="SMALLINT" property="order" />
+    <result column="sequence" jdbcType="SMALLINT" property="sequence" />
   </resultMap>
+
   <sql id="Base_Column_List">
-    id, created_time, modified_time, version, api_id, name, type, order
+    id, created_time, modified_time, version, api_id, name, type, sequence
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from agw_api_param
     where id = #{id,jdbcType=BIGINT}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from agw_api_param
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="me.cxis.agw.dao.model.ApiParamDO">
     insert into agw_api_param (id, created_time, modified_time, 
       version, api_id, name, 
-      type, order)
+      type, sequence)
     values (#{id,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, 
       #{version,jdbcType=SMALLINT}, #{apiId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR}, #{order,jdbcType=SMALLINT})
+      #{type,jdbcType=VARCHAR}, #{sequence,jdbcType=SMALLINT})
   </insert>
+
   <insert id="insertSelective" parameterType="me.cxis.agw.dao.model.ApiParamDO">
     insert into agw_api_param
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -56,8 +61,8 @@
       <if test="type != null">
         type,
       </if>
-      <if test="order != null">
-        order,
+      <if test="sequence != null">
+        sequence,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -82,11 +87,12 @@
       <if test="type != null">
         #{type,jdbcType=VARCHAR},
       </if>
-      <if test="order != null">
-        #{order,jdbcType=SMALLINT},
+      <if test="sequence != null">
+        #{sequence,jdbcType=SMALLINT},
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="me.cxis.agw.dao.model.ApiParamDO">
     update agw_api_param
     <set>
@@ -108,12 +114,13 @@
       <if test="type != null">
         type = #{type,jdbcType=VARCHAR},
       </if>
-      <if test="order != null">
-        order = #{order,jdbcType=SMALLINT},
+      <if test="sequence != null">
+        sequence = #{sequence,jdbcType=SMALLINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="me.cxis.agw.dao.model.ApiParamDO">
     update agw_api_param
     set created_time = #{createdTime,jdbcType=TIMESTAMP},
@@ -122,7 +129,15 @@
       api_id = #{apiId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
-      order = #{order,jdbcType=SMALLINT}
+      sequence = #{sequence,jdbcType=SMALLINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByApiId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from agw_api_param
+    where api_id = #{apiId,jdbcType=BIGINT}
+    order by sequence asc;
+  </select>
 </mapper>
