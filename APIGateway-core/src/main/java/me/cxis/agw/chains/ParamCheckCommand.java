@@ -15,6 +15,9 @@ import java.util.*;
 
 import static me.cxis.agw.model.ErrorCode.PARAM_MISSING;
 
+/**
+ * 检查业务参数，并组织参数
+ */
 public class ParamCheckCommand extends AbstractCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ParamCheckCommand.class);

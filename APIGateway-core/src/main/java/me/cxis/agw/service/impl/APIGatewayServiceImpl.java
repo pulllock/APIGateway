@@ -24,6 +24,7 @@ public class APIGatewayServiceImpl implements APIGatewayService {
     @Override
     public Result<String> processRequest(CommonContext context) {
         try {
+            // commons-chain处理
             chains.execute(context);
 
             Result<String> result = new Result<>();

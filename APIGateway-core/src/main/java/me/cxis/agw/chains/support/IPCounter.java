@@ -4,6 +4,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * 用来统计ip访问次数
+ * 未实现功能：开启单独线程，定时删除map中的数据，防止map一直增长
+ */
 public class IPCounter {
 
     /**

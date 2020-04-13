@@ -12,6 +12,9 @@ import javax.annotation.Resource;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 泛化调用dubbo服务
+ */
 @Component
 public class GenericInvokeDubbo {
 

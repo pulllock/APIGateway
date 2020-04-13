@@ -11,6 +11,9 @@ import javax.annotation.Resource;
 import static me.cxis.agw.model.ErrorCode.OUT_CHANNEL_NOT_EXIST;
 import static me.cxis.agw.model.ErrorCode.SIGNATURE_ERROR;
 
+/**
+ * 检验签名
+ */
 public class SignatureCheckCommand extends AbstractCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SignatureCheckCommand.class);

@@ -15,6 +15,9 @@ import java.security.SecureRandom;
 
 import static me.cxis.agw.model.ErrorCode.SERVICE_ERROR;
 
+/**
+ * 泛化调用dubbo服务，将结果加密返回
+ */
 public class InvokeServiceCommand extends AbstractCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InvokeServiceCommand.class);
