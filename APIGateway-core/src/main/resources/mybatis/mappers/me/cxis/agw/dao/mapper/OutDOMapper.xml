@@ -9,12 +9,13 @@
     <result column="name"          jdbcType="VARCHAR"   property="name" />
     <result column="desc"          jdbcType="VARCHAR"   property="desc" />
     <result column="code"          jdbcType="VARCHAR"   property="code" />
+    <result column="ip_control"    jdbcType="TINYINT"   property="ipControl" />
   </resultMap>
 
   <sql id="Base_Column_List">
     id      , created_time , modified_time ,
     version , name         , `desc`          ,
-    code
+    code    , ip_control
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -32,13 +33,13 @@
   <insert id="insert" parameterType="me.cxis.agw.dao.model.OutDO">
     insert into agw_out (
       id      , created_time , modified_time ,
-      version , name         , `desc`          ,
-      code
+      version , name         , `desc`        ,
+      code    , ip_control
     )
     values (
       #{id      , jdbcType=BIGINT  }, #{createdTime , jdbcType=TIMESTAMP}, #{modifiedTime ,jdbcType=TIMESTAMP},
       #{version , jdbcType=SMALLINT}, #{name        , jdbcType=VARCHAR  }, #{desc         ,jdbcType=VARCHAR  },
-      #{code    , jdbcType=VARCHAR }
+      #{code    , jdbcType=VARCHAR }, #{ipControl   , jdbcType=TINYINT }
     )
   </insert>
 
@@ -66,6 +67,9 @@
       <if test="code != null">
         code,
       </if>
+      <if test="ipControl != null">
+        ip_control,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -88,6 +92,9 @@
       </if>
       <if test="code != null">
         #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="ipControl != null">
+        #{ipControl,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -113,19 +120,23 @@
       <if test="code != null">
         code = #{code,jdbcType=VARCHAR},
       </if>
+      <if test="ipControl != null">
+        ip_control = #{ipControl,jdbcType=TINYINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
 
   <update id="updateByPrimaryKey" parameterType="me.cxis.agw.dao.model.OutDO">
     update agw_out
-    set   created_time = #{createdTime,jdbcType=TIMESTAMP},
+    set   created_time  = #{createdTime,jdbcType=TIMESTAMP},
           modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
-          version = #{version,jdbcType=SMALLINT},
-          name = #{name,jdbcType=VARCHAR},
-          `desc` = #{desc,jdbcType=VARCHAR},
-          code = #{code,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+          version       = #{version,jdbcType=SMALLINT},
+          name          = #{name,jdbcType=VARCHAR},
+          `desc`        = #{desc,jdbcType=VARCHAR},
+          code          = #{code,jdbcType=VARCHAR},
+          ip_control    = #{ipControl,jdbcType=TINYINT}
+    where id            = #{id,jdbcType=BIGINT}
   </update>
 
   <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">

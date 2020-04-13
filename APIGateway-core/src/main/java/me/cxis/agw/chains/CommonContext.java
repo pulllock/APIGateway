@@ -38,6 +38,14 @@ public class CommonContext extends ContextBase {
         return reqParams.get(NONCE);
     }
 
+    public String getApiCode() {
+        return reqParams.get(API_CODE);
+    }
+
+    public String getSys() {
+        return reqParams.get(SYS);
+    }
+
     public int getRetCode() {
         return retCode;
     }

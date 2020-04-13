@@ -3,6 +3,7 @@ package me.cxis.agw.dao.model;
 import java.util.Date;
 
 public class ApiDO {
+
     private Long id;
 
     private Date createdTime;
@@ -22,8 +23,6 @@ public class ApiDO {
     private Long sysId;
 
     private Short timeout;
-
-    private Byte ipControl;
 
     public Long getId() {
         return id;
@@ -103,13 +102,5 @@ public class ApiDO {
 
     public void setTimeout(Short timeout) {
         this.timeout = timeout;
-    }
-
-    public Byte getIpControl() {
-        return ipControl;
-    }
-
-    public void setIpControl(Byte ipControl) {
-        this.ipControl = ipControl;
     }
 }

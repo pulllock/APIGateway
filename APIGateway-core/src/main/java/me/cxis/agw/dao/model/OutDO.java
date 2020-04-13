@@ -3,6 +3,7 @@ package me.cxis.agw.dao.model;
 import java.util.Date;
 
 public class OutDO {
+
     private Long id;
 
     private Date createdTime;
@@ -16,6 +17,8 @@ public class OutDO {
     private String desc;
 
     private String code;
+
+    private Boolean ipControl;
 
     public Long getId() {
         return id;
@@ -71,5 +74,13 @@ public class OutDO {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Boolean getIpControl() {
+        return ipControl;
+    }
+
+    public void setIpControl(Boolean ipControl) {
+        this.ipControl = ipControl;
     }
 }

@@ -8,6 +8,8 @@ public interface Constants {
 
     String API_NAME = "apiName";
 
+    String API_CODE = "code";
+
     String REQ_PARAMS = "reqParams";
 
     String X_FORWARDED_FOR = "X-Forwarded-For";

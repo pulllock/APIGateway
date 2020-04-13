@@ -3,33 +3,41 @@
 <mapper namespace="me.cxis.agw.dao.mapper.SysDOMapper">
   <resultMap id="BaseResultMap" type="me.cxis.agw.dao.model.SysDO">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="created_time"  jdbcType="TIMESTAMP" property="createdTime" />
     <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
-    <result column="version" jdbcType="SMALLINT" property="version" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="version"       jdbcType="SMALLINT"  property="version" />
+    <result column="name"          jdbcType="VARCHAR"   property="name" />
+    <result column="desc"          jdbcType="VARCHAR"   property="desc" />
   </resultMap>
+
   <sql id="Base_Column_List">
-    id, created_time, modified_time, version, name, desc
+    id         , created_time , modified_time ,
+    version    , name         , `desc`
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from agw_sys
     where id = #{id,jdbcType=BIGINT}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from agw_sys
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="me.cxis.agw.dao.model.SysDO">
-    insert into agw_sys (id, created_time, modified_time, 
-      version, name, desc
-      )
-    values (#{id,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, 
-      #{version,jdbcType=SMALLINT}, #{name,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}
-      )
+    insert into agw_sys (
+      id         , created_time , modified_time ,
+      version    , name         , `desc`
+    )
+    values (
+      #{id        , jdbcType=BIGINT  }, #{createdTime , jdbcType=TIMESTAMP}, #{modifiedTime , jdbcType=TIMESTAMP},
+      #{version   , jdbcType=SMALLINT}, #{name        , jdbcType=VARCHAR  }, #{desc         , jdbcType=VARCHAR  }
+    )
   </insert>
+
   <insert id="insertSelective" parameterType="me.cxis.agw.dao.model.SysDO">
     insert into agw_sys
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -49,7 +57,7 @@
         name,
       </if>
       <if test="desc != null">
-        desc,
+        `desc`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -73,6 +81,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="me.cxis.agw.dao.model.SysDO">
     update agw_sys
     <set>
@@ -89,18 +98,26 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="desc != null">
-        desc = #{desc,jdbcType=VARCHAR},
+        `desc` = #{desc,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="me.cxis.agw.dao.model.SysDO">
     update agw_sys
-    set created_time = #{createdTime,jdbcType=TIMESTAMP},
-      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
-      version = #{version,jdbcType=SMALLINT},
-      name = #{name,jdbcType=VARCHAR},
-      desc = #{desc,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+    set   created_time  = #{createdTime,jdbcType=TIMESTAMP},
+          modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+          version       = #{version,jdbcType=SMALLINT},
+          name          = #{name,jdbcType=VARCHAR},
+          `desc`        = #{desc,jdbcType=VARCHAR}
+    where id            = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from agw_sys
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
 </mapper>

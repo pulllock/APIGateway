@@ -8,13 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import static me.cxis.agw.model.ErrorCode.*;
+import static me.cxis.agw.model.ErrorCode.DECODE_DATA_ERROR;
 
 public class DecodeCommand extends AbstractCommand {
 
@@ -27,13 +26,6 @@ public class DecodeCommand extends AbstractCommand {
     public boolean execute(CommonContext context) {
         String outName = context.getOutName();
         OutDO outDO = outManager.queryByName(outName);
-        if (outDO == null) {
-            LOGGER.warn("out channel not exist, out: {}", outName);
-            context.setRetCode(OUT_CHANNEL_NOT_EXIST.getCode());
-            context.setRetMsg(OUT_CHANNEL_NOT_EXIST.getMsg());
-            context.setSuccess(false);
-            return true;
-        }
         String data = context.getParam();
         try {
             String originData = CodecUtil.decrypt(outDO.getCode(), data);

@@ -3,6 +3,7 @@ package me.cxis.agw.dao.model;
 import java.util.Date;
 
 public class SysDO {
+
     private Long id;
 
     private Date createdTime;
