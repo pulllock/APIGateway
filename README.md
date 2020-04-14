@@ -8,13 +8,14 @@ APIGateway API网关项目，从头开始实现一个APIGateway，用来学习AP
 - [APIGateway中责任链模式的使用](http://cxis.me/2020/04/08/APIGateway中责任链模式的使用/)
 - [APIGateway中加密验签介绍](http://cxis.me/2020/04/08/APIGateway中加密验签介绍/)
 - [APIGateway中流控介绍](http://cxis.me/2020/04/09/APIGateway中流控介绍/)
-- [APIGatewat中使用Dubbo泛化调用](http://cxis.me/2020/04/09/APIGatewat中使用Dubbo泛化调用/)
+- [APIGateway中使用Dubbo泛化调用](http://cxis.me/2020/04/09/APIGateway中使用Dubbo泛化调用/)
 - [APIGateway中获取客户端IP的方法](http://cxis.me/2020/04/12/APIGateway中获取客户端IP的方法/)
 - [APIGateway总结](http://cxis.me/2020/04/13/APIGateway总结)
 
 # 运行
 
 1. 启动Zookeeper
+2. 启动Redis
 2. 启动mysql，执行sql目录下的schema.sql和data.sql
 3. 可使用APIGateway-core中的me.cxis.agw.utils.CodecUtil示例，加密和解密请求数据
 4. 启动APIGateway-sample中的示例Dubbo Provider项目
