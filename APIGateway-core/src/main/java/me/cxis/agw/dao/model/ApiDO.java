@@ -1,8 +1,9 @@
 package me.cxis.agw.dao.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ApiDO {
+public class ApiDO implements Serializable {
 
     private Long id;
 

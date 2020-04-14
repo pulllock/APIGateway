@@ -6,6 +6,7 @@ import me.cxis.agw.dao.model.ApiDO;
 import me.cxis.agw.dao.model.ApiParamDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -22,6 +23,7 @@ public class ApiManager {
     @Resource
     private ApiParamDao apiParamDao;
 
+    @Cacheable(value = "apiByCode", key = "#code", unless = "#result == null")
     public ApiDO queryByCode(String code) {
         return apiDao.queryByCode(code);
     }
