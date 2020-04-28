@@ -24,7 +24,7 @@ CREATE TABLE agw_api_param (
     api_id        bigint(20)                         NOT NULL COMMENT 'api id',
     name          varchar(255)                       NOT NULL COMMENT '参数名',
     type          varchar(255)                       NOT NULL COMMENT '参数类型',
-    `sequence`     smallint(6)                        NOT NULL COMMENT '参数顺序',
+    `sequence`    smallint(6)                        NOT NULL COMMENT '参数顺序',
     PRIMARY KEY pk_id(id),
     INDEX idx_api_id(api_id)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '接口对应的参数信息';
@@ -35,7 +35,7 @@ CREATE TABLE agw_sys (
     modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     name          varchar(255)                       NOT NULL COMMENT '业务系统名',
-    `desc`          varchar(255)                       NOT NULL COMMENT '业务系统描述',
+    `desc`        varchar(255)                       NOT NULL COMMENT '业务系统描述',
     PRIMARY KEY pk_id(id)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '接口所属业务系统';
 
@@ -45,7 +45,7 @@ CREATE TABLE agw_out (
     modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     name          varchar(255)                       NOT NULL COMMENT '业务系统名',
-    `desc`          varchar(255)                       NOT NULL COMMENT '业务系统描述',
+    `desc`        varchar(255)                       NOT NULL COMMENT '业务系统描述',
     code          varchar(255)                       NOT NULL COMMENT '外部系统唯一标识',
     ip_control    tinyint(4)                             NULL DEFAULT 0 COMMENT '是否白名单控制 0-否 1-是',
     PRIMARY KEY pk_id(id)
