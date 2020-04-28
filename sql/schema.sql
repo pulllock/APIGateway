@@ -2,8 +2,8 @@ CREATE DATABASE IF NOT EXISTS agw DEFAULT CHARSET utf8mb4;
 
 CREATE TABLE agw_api (
     id            bigint(20) unsigned AUTO_INCREMENT NOT NULL COMMENT '主键id',
-    created_time  datetime                           NOT NULL COMMENT '创建时间',
-    modified_time datetime                           NOT NULL COMMENT '修改时间',
+    created_time  datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     code          varchar(255)                       NOT NULL COMMENT 'api唯一标识',
     name          varchar(255)                       NOT NULL COMMENT 'api接口名',
@@ -18,8 +18,8 @@ CREATE TABLE agw_api (
 
 CREATE TABLE agw_api_param (
     id            bigint(20) unsigned AUTO_INCREMENT NOT NULL COMMENT '主键id',
-    created_time  datetime                           NOT NULL COMMENT '创建时间',
-    modified_time datetime                           NOT NULL COMMENT '修改时间',
+    created_time  datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     api_id        bigint(20)                         NOT NULL COMMENT 'api id',
     name          varchar(255)                       NOT NULL COMMENT '参数名',
@@ -31,8 +31,8 @@ CREATE TABLE agw_api_param (
 
 CREATE TABLE agw_sys (
     id            bigint(20) unsigned AUTO_INCREMENT NOT NULL COMMENT '主键id',
-    created_time  datetime                           NOT NULL COMMENT '创建时间',
-    modified_time datetime                           NOT NULL COMMENT '修改时间',
+    created_time  datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     name          varchar(255)                       NOT NULL COMMENT '业务系统名',
     `desc`          varchar(255)                       NOT NULL COMMENT '业务系统描述',
@@ -41,8 +41,8 @@ CREATE TABLE agw_sys (
 
 CREATE TABLE agw_out (
     id            bigint(20) unsigned AUTO_INCREMENT NOT NULL COMMENT '主键id',
-    created_time  datetime                           NOT NULL COMMENT '创建时间',
-    modified_time datetime                           NOT NULL COMMENT '修改时间',
+    created_time  datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     name          varchar(255)                       NOT NULL COMMENT '业务系统名',
     `desc`          varchar(255)                       NOT NULL COMMENT '业务系统描述',
@@ -53,8 +53,8 @@ CREATE TABLE agw_out (
 
 CREATE TABLE agw_out_api (
     id            bigint(20) unsigned AUTO_INCREMENT NOT NULL COMMENT '主键id',
-    created_time  datetime                           NOT NULL COMMENT '创建时间',
-    modified_time datetime                           NOT NULL COMMENT '修改时间',
+    created_time  datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     out_id        bigint(20)                         NOT NULL COMMENT '外部系统id',
     api_id        bigint(20)                         NOT NULL COMMENT 'api id',
@@ -65,8 +65,8 @@ CREATE TABLE agw_out_api (
 
 CREATE TABLE agw_out_ip (
     id            bigint(20) unsigned AUTO_INCREMENT NOT NULL COMMENT '主键id',
-    created_time  datetime                           NOT NULL COMMENT '创建时间',
-    modified_time datetime                           NOT NULL COMMENT '修改时间',
+    created_time  datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     out_id        bigint(20)                         NOT NULL COMMENT '外部系统id',
     ip            varchar(255)                       NOT NULL COMMENT '外部系统白名单',
@@ -76,8 +76,8 @@ CREATE TABLE agw_out_ip (
 
 CREATE TABLE agw_black_ip (
     id            bigint(20) unsigned AUTO_INCREMENT NOT NULL COMMENT '主键id',
-    created_time  datetime                           NOT NULL COMMENT '创建时间',
-    modified_time datetime                           NOT NULL COMMENT '修改时间',
+    created_time  datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    modified_time datetime                           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     version       smallint(6)                        NOT NULL DEFAULT 1 COMMENT '版本号',
     out_id        bigint(20)                         NULL COMMENT '外部系统id',
     ip            varchar(255)                       NOT NULL COMMENT '黑名单ip',
