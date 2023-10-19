@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="me.cxis.agw.dao.mapper.ApiParamDOMapper">
-  <resultMap id="BaseResultMap" type="me.cxis.agw.dao.model.ApiParamDO">
+<mapper namespace="fun.pullock.agw.dao.mapper.ApiParamDOMapper">
+  <resultMap id="BaseResultMap" type="fun.pullock.agw.dao.model.ApiParamDO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
     <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
@@ -28,7 +28,7 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
 
-  <insert id="insert" parameterType="me.cxis.agw.dao.model.ApiParamDO">
+  <insert id="insert" parameterType="fun.pullock.agw.dao.model.ApiParamDO">
     insert into agw_api_param (id, created_time, modified_time, 
       version, api_id, name, 
       type, sequence)
@@ -37,7 +37,7 @@
       #{type,jdbcType=VARCHAR}, #{sequence,jdbcType=SMALLINT})
   </insert>
 
-  <insert id="insertSelective" parameterType="me.cxis.agw.dao.model.ApiParamDO">
+  <insert id="insertSelective" parameterType="fun.pullock.agw.dao.model.ApiParamDO">
     insert into agw_api_param
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -93,7 +93,7 @@
     </trim>
   </insert>
 
-  <update id="updateByPrimaryKeySelective" parameterType="me.cxis.agw.dao.model.ApiParamDO">
+  <update id="updateByPrimaryKeySelective" parameterType="fun.pullock.agw.dao.model.ApiParamDO">
     update agw_api_param
     <set>
       <if test="createdTime != null">
@@ -121,7 +121,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
-  <update id="updateByPrimaryKey" parameterType="me.cxis.agw.dao.model.ApiParamDO">
+  <update id="updateByPrimaryKey" parameterType="fun.pullock.agw.dao.model.ApiParamDO">
     update agw_api_param
     set created_time = #{createdTime,jdbcType=TIMESTAMP},
       modified_time = #{modifiedTime,jdbcType=TIMESTAMP},

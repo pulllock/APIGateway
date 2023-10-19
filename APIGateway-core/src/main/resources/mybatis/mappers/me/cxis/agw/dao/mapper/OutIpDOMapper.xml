@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="me.cxis.agw.dao.mapper.OutIpDOMapper">
-  <resultMap id="BaseResultMap" type="me.cxis.agw.dao.model.OutIpDO">
+<mapper namespace="fun.pullock.agw.dao.mapper.OutIpDOMapper">
+  <resultMap id="BaseResultMap" type="fun.pullock.agw.dao.model.OutIpDO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
     <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
@@ -22,13 +22,13 @@
     delete from agw_out_ip
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="me.cxis.agw.dao.model.OutIpDO">
+  <insert id="insert" parameterType="fun.pullock.agw.dao.model.OutIpDO">
     insert into agw_out_ip (id, created_time, modified_time, 
       version, out_id, ip)
     values (#{id,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, 
       #{version,jdbcType=SMALLINT}, #{outId,jdbcType=BIGINT}, #{ip,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="me.cxis.agw.dao.model.OutIpDO">
+  <insert id="insertSelective" parameterType="fun.pullock.agw.dao.model.OutIpDO">
     insert into agw_out_ip
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -71,7 +71,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="me.cxis.agw.dao.model.OutIpDO">
+  <update id="updateByPrimaryKeySelective" parameterType="fun.pullock.agw.dao.model.OutIpDO">
     update agw_out_ip
     <set>
       <if test="createdTime != null">
@@ -93,7 +93,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
-  <update id="updateByPrimaryKey" parameterType="me.cxis.agw.dao.model.OutIpDO">
+  <update id="updateByPrimaryKey" parameterType="fun.pullock.agw.dao.model.OutIpDO">
     update agw_out_ip
     set   created_time  = #{createdTime,jdbcType=TIMESTAMP},
           modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
